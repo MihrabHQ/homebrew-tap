@@ -12,7 +12,12 @@ cask "mihrab" do
     strategy :github_latest
   end
 
-  depends_on macos: :ventura
+  # What the app itself needs, read off the shipped bundle: its
+  # LSMinimumSystemVersion is 12.1 (a cask can only name the major), and
+  # it is built for Apple silicon only. Mihrab's verify-release.sh fails a
+  # release whose cask asks for more or less. The widgets need macOS 14;
+  # on 12 and 13 the app runs without them (see the caveat).
+  depends_on macos: :monterey
   depends_on arch: :arm64
 
   app "Mihrab.app"
@@ -118,6 +123,7 @@ cask "mihrab" do
   # build whose zip has no stapled ticket.
   caveats <<~EOS
     Mihrab for Mac is the same app as the iPad version, built with Mac
-    Catalyst.
+    Catalyst. Its Notification Centre widgets need macOS 14 (Sonoma) or
+    later; on earlier versions the app runs without them.
   EOS
 end
