@@ -12,7 +12,7 @@ cask "mihrab" do
     strategy :github_latest
   end
 
-  depends_on macos: :ventura
+  depends_on macos: :monterey
   depends_on arch: :arm64
 
   app "Mihrab.app"

@@ -10,6 +10,9 @@ brew install --cask mihrabhq/tap/mihrab
 That one command installs and updates the app; `brew upgrade` keeps it current,
 and every Mihrab release updates this cask the same day.
 
+It needs macOS 12.1 (Monterey) or later on Apple silicon; the widgets need
+macOS 14 (Sonoma).
+
 ## What you get
 
 The macOS build is the iPad app through Mac Catalyst, so it is the whole app,
